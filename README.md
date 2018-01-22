@@ -33,7 +33,9 @@ Here's what this command does:
 
 Running this command will connect to your installed database server and execute the SQL commands in the downloaded file, creating tables and populating them with data.
 ## Getting an error?
-If this command gives an error message, such as —
+If this command gives an error message, such as 
+``` postgreSQL
 psql: FATAL: database "news" does not exist
 psql: could not connect to server: Connection refused
-— this means the database server is not running or is not set up correctly. This can happen if you have an older version of the VM configuration from before this project was added. To continue, download the virtual machine configuration into a fresh new directory and start it from there.
+```
+ this means the database server is not running or is not set up correctly. This can happen if you have an older version of the VM configuration from before this project was added. To continue, download the virtual machine configuration into a fresh new directory and start it from there.
