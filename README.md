@@ -40,3 +40,30 @@ psql: FATAL: database "news" does not exist
 psql: could not connect to server: Connection refused
 ```
 this means the database server is not running or is not set up correctly. This can happen if you have an older version of the VM configuration from before this project was added. To continue, download the virtual machine configuration into a fresh new directory and start it from there.
+# Creating The Views
+``` sql
+CREATE VIEW path_hits AS 
+SELECT substr(log.path, 10) AS slughit,count(path) AS hits 
+FROM log
+GROUP BY path 
+ORDER BY hits DESC; 
+```
+```sql
+CREATE VIEW auth_slug_hit AS SELECT author,slughit, hits
+FROM articles,path_hits 
+WHERE articles.slug=path_hits.slughit;
+```
+```sql
+CREATE VIEW error_table AS 
+SELECT date(time), count(*) AS error_hits 
+FROM log WHERE status='404 NOT FOUND' 
+GROUP BY date(time) 
+ORDER BY date(time);
+```
+```sql
+CREATE VIEW all_views AS 
+SELECT date(time), count(*) AS views 
+FROM log 
+GROUP BY date(time) 
+ORDER BY date(time);
+```
