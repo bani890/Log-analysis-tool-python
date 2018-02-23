@@ -17,7 +17,7 @@ The log-tool should be able to answer the following questions:
 This project makes use of the same Linux-based virtual machine (VM).The virtual machine will give you the PostgreSQL database and support software needed for this project. If you have used an older version of this VM, you may need to install it into a new directory.
 If you need to bring the virtual machine back online (with `vagrant up`), do so now. Then log into it with `vagrant ssh`.
 ## Download The Data
-Next, download the data here. You will need to unzip this file after downloading it. The file inside is called `newsdata.sql`. Put this file into the vagrant directory, which is shared with your virtual machine.
+Next, download the data [here](). You will need to unzip this file after downloading it. The file inside is called `newsdata.sql`. Put this file into the vagrant directory, which is shared with your virtual machine.
 
 To build the reporting tool, you'll need to load the site's data into your local database. Review how to use the `psql` command in this lesson.
 
@@ -48,7 +48,7 @@ GROUP BY path
 ORDER BY hits DESC; 
 ```
 ```sql
-CREATE VIEW auth_slug_hit AS SELECT author,slughit, hits
+CREATE VIEW auth_slug_hit AS SELECT author,title, hits
 FROM articles,path_hits 
 WHERE articles.slug=path_hits.slughit;
 ```
