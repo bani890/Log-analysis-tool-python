@@ -47,7 +47,7 @@ while loop:  # While loop which will keep going until loop = False
                  ",round(100.0*error_table.error_hits / all_views.views,2)"
                  " as percentage_error from error_table"
                  ",all_views where all_views.date = error_table.date"
-                 " order by percentage_error desc ;")
+                 " and round(100.0*error_table.error_hits / all_views.views,2)>1.0;")
         c.execute(query)
         rows = c.fetchall()
         for (Days, percentage) in rows:
