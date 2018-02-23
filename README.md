@@ -4,7 +4,6 @@ This project develops a log analysis tool for generating report. Building an inf
 ### Technologies Used
 * Python
 * PostgreSQL
-* flask
 * vagrant
 ### Project Description
 ---
