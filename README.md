@@ -7,7 +7,7 @@ This project develops a log analysis tool for generating report. Building an inf
 * vagrant
 ### Project Description
 ---
-The log-tool should be able to answer the following questions:
+This project sets up a mock PostgreSQL database for a fictional news website. The provided Python script uses the psycopg2 library to query the database and produce a report that answers the following three questions:
 ##### 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 ##### 2. Who are the most popular article authors of all time?
 ##### 3. On which days did more than 1% of requests lead to errors?
