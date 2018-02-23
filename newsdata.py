@@ -11,6 +11,7 @@ def print_menu():  # Your menu design here
     print "1.What are the most popular three articles of all time?"
     print "2.Who are the most popular article authors of all time?"
     print "3.On which days did more than 1% of requests lead to errors?"
+    print "4.exit"
     print 67 * "-"
 
 
@@ -18,7 +19,7 @@ loop = True
 
 while loop:  # While loop which will keep going until loop = False
     print_menu()  # Displays menu
-    choice = input("Enter your choice [1-3]: ")
+    choice = input("Enter your choice [1-4]: ")
     if choice == 1:
         print "Menu 1 has been selected"
         query = ("select title"
@@ -47,9 +48,13 @@ while loop:  # While loop which will keep going until loop = False
                  ",round(100.0*error_table.error_hits / all_views.views,2)"
                  " as percentage_error from error_table"
                  ",all_views where all_views.date = error_table.date"
-                 " and round(100.0*error_table.error_hits / all_views.views,2)>1.0;")
+                 " and round(100.0*error_table.error_hits / all_views.views,2)"
+                 ">1.0;")
         c.execute(query)
         rows = c.fetchall()
         for (Days, percentage) in rows:
             print("{}----{}".format(Days, percentage))
-loop = False
+    elif(choice == 4):
+        db.close()
+        print "Database connection has terminated"
+        loop = False
