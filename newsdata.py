@@ -1,4 +1,4 @@
-#!/usr/bin/python 3.6
+#!/usr/bin/ env python
 import psycopg2
 
 # The code forthe code for creating the views is saved in view.txt file.
